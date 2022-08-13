@@ -38,3 +38,14 @@ foreign key(course_id) references ineuron(course_id))
 insert into payment values ('fsda',01,'not-active','7th aug')
 insert into payment values ('fsda',01,'not-active','7th aug')
 insert into payment values ('fsda',01,'not-active','7th aug')
+
+
+
+
+create table class(
+course_id int ,
+class_name varchar(60),
+class_topic varchar(60),
+class_duration int ,
+primary key(course_id),
+foreign key(course_id) references ineuron(course_id))
