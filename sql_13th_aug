@@ -1,1 +1,2 @@
-
+create database key_prim
+use key_prim
