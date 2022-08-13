@@ -1,2 +1,9 @@
 create database key_prim
 use key_prim
+
+create table ineuron(
+course_id int NOT NULL,
+course_name varchar(60),
+course_status varchar(40),
+number_of_enro int ,
+primary key(course_id));
