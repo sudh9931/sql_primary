@@ -72,6 +72,53 @@ alter table test drop primary key
 alter table test add constraint test_prim primary key(id , email_id)
 
 
+create table parent(
+id int not null ,
+primary key(id))
 
+create table child (
+id int ,
+parent_id int ,
+foreign key (parent_id) references parent(id))
+
+insert into parent values(1)
+select * from parent 
+insert into child values(1,1)
+select * from child
+insert into child values(2,2)
+delete from parent where id =1
+delete from child where id =1
+
+drop table child
+
+
+create table child (
+id int ,
+parent_id int ,
+foreign key (parent_id) references parent(id) on delete cascade )
+
+insert into child values(1,1),(1,2),(3,2),(2,2)
+
+select * from child
+
+select * from parent
+
+delete from parent where id  = 1
+
+update parent set id = 3 where id = 2
+
+drop table child
+
+create table child (
+id int ,
+parent_id int ,
+foreign key (parent_id) references parent(id) on update cascade )
+
+insert into child values(1,1),(1,2),(3,2),(2,2)
+
+select * from child ; 
+select * from parent;
+
+update parent set id = 3 where id = 2
 
 
