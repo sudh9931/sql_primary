@@ -40,8 +40,6 @@ insert into payment values ('fsda',01,'not-active','7th aug')
 insert into payment values ('fsda',01,'not-active','7th aug')
 
 
-
-
 create table class(
 course_id int ,
 class_name varchar(60),
@@ -49,3 +47,31 @@ class_topic varchar(60),
 class_duration int ,
 primary key(course_id),
 foreign key(course_id) references ineuron(course_id))
+
+alter table ineuron drop primary key
+
+alter table class drop primary key
+
+alter table ineuron add constraint test_prim primary key(course_id,course_name)
+
+drop table ineuron
+
+drop table class
+
+create table test(
+id int not null , 
+name varchar(60),
+email_id varchar(60),
+mobile_no varchar(9),
+address varchar(50))
+
+alter table test add primary key(id)
+
+alter table test drop primary key
+
+alter table test add constraint test_prim primary key(id , email_id)
+
+
+
+
+
